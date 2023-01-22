@@ -38,7 +38,10 @@ On end change/add:
     ThisAssembly.Git.Commit)]
 ````
 
-## 3) Go to _properties_ of app:
+## 3) folder _APP_:
+**In git add folder _APP_ as ignore!**
+
+## 4) Go to _properties_ of app:
 - Select **Application**. In Icon and manifest add icon: **PnPCoreApp_254.ico**.
 - Select **Build**. In platform target select: **x64**.
 - Select **Build Events**. In pre-build event add.
@@ -56,7 +59,7 @@ copy $(TargetDir)*.dll  $(SolutionDir)APP\Bin
 powershell Compress-Archive -Path '$(SolutionDir)APP' -DestinationPath '$(SolutionDir)APP\$(ProjectName).zip' -Force
 ````
 
-## 4a) Add _AppSecret.config_:
+## 5a) Add _AppSecret.config_:
 Select project Add new item -> Application Configuration File, add **AppSecret.config**.
 Replace code with:
 ````
@@ -69,7 +72,7 @@ Replace code with:
 ````
 **In git add this file for ignore!**
 
-## 4b) Edit _App.config_:
+## 5b) Edit _App.config_:
 In end of **<configuration>** add:
 ````
 <appSettings file="AppSecret.config">
