@@ -345,6 +345,8 @@ static async Task Main(string[] args)
 Add using:
 ````
 using PnPCorePOC.Helper;
+using PnP.Core.Services;
+using Microsoft.Extensions.DependencyInjection;
 ````
 
 Add example code:
