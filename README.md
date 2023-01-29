@@ -29,6 +29,7 @@ Select project, from context menu select: Add -> New item -> Application Configu
 Replace code with:
 ````
 <appSettings>
+	<add key="SPO:0:SiteName" value="pnpdemo" />
 	<add key="SPO:0:TenantID" value="8ae35f9e-b3c6-486b-bdf8-5c8da0cff7b9"/>
 	<add key="SPO:0:SiteURL" value="https://contoso.sharepoint.com/sites/pnpdemo"/>
 	<add key="SPO:0:ApplicationID" value="64f4c29a-b1d5-47c5-91d3-ecdfaedeb72a"/>
@@ -344,6 +345,8 @@ static async Task Main(string[] args)
 Add using:
 ````
 using PnPCorePOC.Helper;
+using PnP.Core.Services;
+using Microsoft.Extensions.DependencyInjection;
 ````
 
 Add example code:
