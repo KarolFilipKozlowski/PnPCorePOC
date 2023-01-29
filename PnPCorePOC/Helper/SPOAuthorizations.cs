@@ -27,7 +27,7 @@ namespace PnPCorePOC.Helper
                             {
                                 builder.AddFilter("Microsoft", LogLevel.Warning)
                                        .AddFilter("System", LogLevel.Warning)
-                                       .AddFilter("", LogLevel.Warning)
+                                       .AddFilter("PnP.Core.Auth", LogLevel.Warning)
                                        .AddConsole();
                             });
                             services.AddPnPCore(options =>
