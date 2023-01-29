@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using PnP.Core.QueryModel;
 using PnP.Core.Services;
 using PnPCorePOC.Helper;
 using System;
@@ -22,7 +23,24 @@ namespace PnPCorePOC
                 {
                     var myWeb = await context.Web.GetAsync(p => p.Title);
                     Console.WriteLine(myWeb.Title);
+
+                    await context.Web.LoadAsync(p => p.Lists.QueryProperties(
+                                                        l => l.Id,
+                                                        l => l.Hidden,
+                                                        l => l.Title));
+
+                    foreach (var list in context.Web.Lists.AsRequested().Where(p => p.Hidden == false))
+                    {
+                        Console.WriteLine($"Lista: {list.Id} == {list.Title}");
+                    }
+
+                    await context.Web.LoadAsync(p => p.RoleDefinitions);
+                    foreach (var role in context.Web.RoleDefinitions.AsRequested())
+                    {
+                        Console.WriteLine($"Rola: {role.Id} == {role.Name}");
+                    }
                 }
+                Console.ReadLine();
             }
         }
     }
